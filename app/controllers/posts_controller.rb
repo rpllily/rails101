@@ -19,6 +19,18 @@ def create
   end
 end
 
+def update
+  if @post.update(post_params)
+    redirect_to group_path(@group), notice: "Update Success"
+  else
+    render :edit
+  end
+end
+
+  def destroy
+    @post.destroy
+    redirect_to group_path(@group), alert: "Group deleted"
+  end
 
 private
 
